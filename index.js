@@ -21,19 +21,28 @@ const fmtUptime = (ms) => {
 
 // ---------- MENU ----------
 const CATEGORIES = {
-  '👑 OWNER': ['mode', 'setprefix', 'viewonce', 'save'],
-  '💻 BOT': ['menu', 'ping', 'alive', 'runtime', 'owner'],
-  '👥 GROUP': ['kick', 'promote', 'demote', 'mute', 'unmute', 'grouplink', 'groupinfo', 'tagall', 'hidetag'],
-  '🛠️ TOOLS': ['calc', 'base64', 'binary', 'reverse', 'case', 'count', 'age'],
-  '🎮 GAMES': ['dice', 'coin', '8ball', 'rps', 'pick', 'random'],
-  '🎯 FUN': ['joke', 'fact', 'quote']
+  '👑 *OWNER*': ['mode', 'settings', 'password', 'setprefix', 'viewonce', 'delprefix', 'setpp', 'setbotbio', 'autobio', 'autostatus', 'autotyping', 'autorecording', 'autoreact', 'anticall', 'antidelete', 'antideletestatus', 'addsudo', 'delsudo', 'sudolist', 'block', 'unblock', 'ban', 'unban', 'save', 'schedulestatus', 'reshare', 'chatbot', 'clearsession', 'cleartmp', 'pair', 'checkidch', 'archive', 'unarchive', 'chatpin', 'unpin', 'markread', 'markunread', 'unmutechat', 'profilename', 'fullphoto', 'removephoto', 'join', 'listgc', 'edit', 'forward', 'getprivacy', 'lastseen', 'mypp', 'mystatus', 'read', 'groupadd', 'privacy'],
+  '💻 *BOT*': ['owner', 'ping', 'alive', 'runtime', 'repo'],
+  '👥 *GROUP*': ['add', 'kick', 'kickall', 'promote', 'demote', 'mute', 'unmute', 'lockgroup', 'unlockgroup', 'revoke', 'grouplink', 'setname', 'setdesc', 'setgcpp', 'gcstatus', 'newgroup', 'leavegc', 'groupinfo', 'staff', 'jid', 'tagall', 'tag', 'hidetag', 'tagadmins', 'online', 'onlineusers', 'onlineadmins', 'onlinestats', 'welcome', 'goodbye', 'rules', 'poll', 'afk', 'couple', 'antilink', 'antitag', 'antigroupmention', 'antigroupstatus', 'antibot', 'antibadword', 'antispam', 'slowmode', 'warn', 'warnings', 'antifakenumber', 'adminalerts', 'antiword', 'enable', 'disable', 'lockat', 'unlockat', 'cancellock', 'cancelunlock', 'acceptall', 'rejectall', 'listrequest', 'linkinfo', 'fullgroupphoto', 'checkwarn', 'resetwarn', 'gcset', 'tagnotadmin'],
+  '🤖 *AI*': ['ai', 'gpt', 'qwen', 'allam', 'imagine', 'flux', 'dalle', 'txt2video', 'sora', 'imageedit', 'diffusion'],
+  '📥 *DOWNLOADER*': ['play', 'song', 'music', 'ytmp3', 'mp3', 'ytmp4', 'video', 'instagram', 'tiktok', 'tt', 'facebook', 'fb', 'pinterest', 'anime', 'movie', 'gitclone', 'apk', 'pixabay', 'gif', 'tourl', 'mediafire', 'xdown', 'ytdoc', 'ringtone', 'wikimedia'],
+  '🎚️ *AUDIO*': ['bass', 'deep', 'blown', 'earrape', 'fast', 'slow', 'fat', 'squirrel', 'nightcore', 'robot', 'areverse', '8d', 'echo', 'reverb', 'vibrato', 'tremolo', 'radio', 'alien', 'audiofx', 'tomp3', 'tts'],
+  '🎨 *CONVERTER*': ['sticker', 's', 'simage', 'toimg', 'removebg', 'upscale', 'take', 'attp', 'qc', 'emojimix', 'tgsticker', 'blur', 'meme', 'getpp', 'wasted', 'character', 'crop', 'circle', 'round', 'ttp', 'brat', 'memegen', 'tomp4', 'tovn'],
+  '🔤 *LOGO MAKER*': ['fancy', 'gfx', 'gfx2', 'gfx3', 'gfx4', 'gfx5', 'gfx6', 'gfx7', 'gfx8', 'gfx9', 'gfx10', 'gfx11', 'gfx12', 'metallic', 'ice', 'snow', 'impressive', 'matrix', 'neon', 'light', 'devil', 'purple', 'thunder', 'leaves', '1917', 'arena', 'hacker', 'sand', 'blackpink', 'glitch', 'fire', 'slice', 'glow', 'gitch1', 'steal', 'avenger', 'marvel', 'glitch2', 'grafiti'],
+  '🛠️ *TOOLS*': ['ss', 'ssweb', 'translate', 'tr', 'qrcode', 'qr', 'shorturl', 'urlshortener', 'calculator', 'calc', 'hash', 'base64', 'binary', 'encrypt', 'decrypt', 'timestamp', 'currency', 'crypto', 'weather', 'news', 'livescore', 'reminder', 'lyrics', 'count', 'reverse', 'case', 'palindrome', 'age', 'vv', 'vv2', 'delete', 'savecontact', 'device', 'netflix', 'paste', 'fliptext', 'binarytotext', 'readmore', 'cpu', 'npm', 'imdb', 'horo', 'google', 'image', 'define', 'grayscale', 'invert', 'sepia', 'sharpen', 'readqr', 'qmaker', 'smallcaps', 'flip', 'stext', 'ephoto', 'excard', 'forwarded', 'wiki', 'element', 'wattpad', 'ytsearch', 'scloud', 'shazam'],
+  '🕵️ *STALK*': ['gitstalk', 'npmstalk', 'tgstalk', 'ttstalk', 'xstalk', 'thrstalk', 'pinstalk', 'genshin'],
+  '🎮 *GAMES*': ['trivia', 'scramble', 'wordle', 'hangman', 'guess', 'ttt', 'tictactoe', 'wyr', 'rps', 'slots', 'truth', 'dare', 'riddle', '8ball', 'dice', 'coin', 'random', 'pick'],
+  '🎯 *FUN*': ['joke', 'fact', 'quote', 'compliment', 'insult', 'roast', 'flirt', 'ship', 'simp', 'stupid', 'shayari', 'goodnight', 'roseday', 'iloveyou', 'couplepp', 'coffe', 'quotes', 'joke2', 'question', 'teddy', 'lovemsg'],
+  '🖼️ *PIES*': ['pies', 'india', 'china', 'japan', 'korea', 'thai', 'malaysia'],
+  '🌸 *ANIME*': ['pokemon', 'pokepic', 'animepic', 'animewall', 'wallpaper', 'animenews'],
+  '👑 *PREMIUM*': ['premium', 'setbotpp', 'autoreply', 'away', 'schedule', 'filter', 'persona', 'ghost', 'chreact', 'pollvote']
 };
 
 function buildMenu(ping = 0) {
   const total = Object.values(CATEGORIES).flat().length;
   let t = `╔════════◇◆◇═══════╗
-├ *🤖👑 ${config.botName.toUpperCase()} 👑🤖*
-├▢👑 Owner: *${config.ownerName}*
+├ *❄️🌹𝐊𝐄𝐋𝐕𝐈𝐍 𝐁𝐎𝐓🌹❄️*
+├▢👑 Owner: *𝕶𝖊𝖑𝖛𝖎𝖓 𝖂𝖆𝖍𝖆𝖇*
 ├▢🕐 *${new Date().toLocaleString()}*
 ├▢⏱️ Uptime: *${fmtUptime(Date.now() - startTime)}*
 ├▢📶 Ping: *${ping}ms*
@@ -46,7 +55,7 @@ function buildMenu(ping = 0) {
     t += cmds.map((c) => `║ ➣ *${prefix}${c}*`).join('\n');
     t += `\n╚═══════════════╝\n`;
   }
-  t += `\n╔══════════════════╗\n   *ABOUT US*\n╠──────────────────╣\n *${config.botName} • WhatsApp Bot 💚*\n ${config.about}\n Thanks for using ${config.botName} 🙏\n╚══════════════════╝`;
+  t += `\n╔══════════════════╗\n        *ABOUT US*\n╠──────────────────╣\n *MultiDevice WhatsApp Bot ❤️‍🔥*\n  Creator: *Kelvin Wahab*\n Thanks For Using Our Bot🙏\n╚══════════════════╝`;
   return t;
 }
 
@@ -242,7 +251,7 @@ let linked = false;
 
 const PAGE = `<!doctype html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kelvin_bot</title>
+<title>Kelvin bot</title>
 <style>
 body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#04110a;color:#fff;font-family:system-ui,sans-serif}
 .c{width:90%;max-width:380px;text-align:center;padding:24px;border:2px solid #22c55e;border-radius:20px;box-shadow:0 0 30px #22c55e55}
@@ -253,7 +262,7 @@ button{background:#22c55e;color:#000;font-weight:700}
 #code{font-size:34px;letter-spacing:4px;color:#4ade80;margin-top:16px;font-weight:800}
 small{color:#9ca3af}
 </style></head><body><div class="c">
-<img src="/logo.png"><h1>Kelvin_bot</h1>
+<img src="/logo.png"><h1>Kelvin bot</h1>
 <p>Enter your WhatsApp number with country code (no +)</p>
 <input id="n" type="tel" placeholder="2348012345678">
 <button onclick="go()">Get pairing code</button>
@@ -294,7 +303,7 @@ http.createServer(async (req, res) => {
     }
   }
   res.setHeader('Content-Type', 'text/html');
-  res.end(linked ? '<body style="background:#04110a;color:#4ade80;font-family:sans-serif;text-align:center;padding-top:20vh"><h1>✅ Kelvin_bot is running</h1></body>' : PAGE);
+  res.end(linked ? '<body style="background:#04110a;color:#4ade80;font-family:sans-serif;text-align:center;padding-top:20vh"><h1>✅ Kelvin bot is running</h1></body>' : PAGE);
 }).listen(PORT, () => console.log('Web page running on port ' + PORT));
 
 // ---------- CONNECTION ----------
